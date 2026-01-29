@@ -6,7 +6,8 @@ mkdir -p ~/.local/share/AMTspecs
 
 # Move the files
 mkdir -p ~/.local/bin/AMTspecs
-cp bin/AMTsp ~/.local/bin/AMTspecs
+
+cp AMTsp ~/.local/bin/AMTspecs
 cp -r Images ~/.local/share
 
 # Make the script executable
