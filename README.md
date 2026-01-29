@@ -1,6 +1,6 @@
 # AMTspecs Project by YatoYashimaru <br>
 
-### Required to Install
+###Required to Install
 - chafa
 - ascii-image-converter
 - cat
@@ -17,7 +17,7 @@
  AMTsp help
 ```
 
-### Before Use
+###Before Use
 - run 
 ```bash
 nano ~/.bashrc

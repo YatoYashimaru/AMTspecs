@@ -1,0 +1,96 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+NoColor='\033[0m'
+
+case $1 in
+	"help")
+		cat <<"EOF"
+		                                                                                                                                        
+      _____        ______  _______   _________________                ______       _____        ______         _____            ______  
+  ___|\    \      |      \/       \ /                 \           ___|\     \  ___|\    \   ___|\     \    ___|\    \       ___|\     \ 
+ /    /\    \    /          /\     \\______     ______/          |    |\     \|    |\    \ |     \     \  /    /\    \     |    |\     \
+|    |  |    |  /     /\   / /\     |  \( /    /  )/             |    |/____/||    | |    ||     ,_____/||    |  |    |    |    |/____/|
+|    |__|    | /     /\ \_/ / /    /|   ' |   |   '           ___|    \|   | ||    |/____/||     \--'\_|/|    |  |____| ___|    \|   | |
+|    .--.    ||     |  \|_|/ /    / |     |   |              |    \    \___|/ |    ||    |||     /___/|  |    |   ____ |    \    \___|/ 
+|    |  |    ||     |       |    |  |    /   //              |    |\     \    |    ||____|/|     \____|\ |    |  |    ||    |\     \    
+|____|  |____||\____\       |____|  /   /___//               |\ ___\|_____|   |____|       |____ '     /||\ ___\/    /||\ ___\|_____|   
+|    |  |    || |    |      |    | /   |`   |                | |    |     |   |    |       |    /_____/ || |   /____/ || |    |     |   
+|____|  |____| \|____|      |____|/    |____|                 \|____|_____|   |____|       |____|     | / \|___|    | / \|____|_____|   
+  \(      )/      \(          )/         \(                      \(    )/       \(           \( |_____|/    \( |____|/     \(    )/     
+   '      '        '          '           '                       '    '         '            '    )/        '   )/         '    '      
+                                                                                                   '             '                      
+EOF
+
+		echo "Project by @YatoYashimaru\n"
+		echo -e "${GREEN}	█████ Hello User Welcome to AMTspecs █████${NoColor}"
+		echo ""
+		echo "	╔════════════════════════════════════════════════════════════════════════════╗"
+		echo "	║ Use:                                                                       ║"
+		echo "	║ AMTsp <commands>                                                           ║"
+		echo "	╠══════════════════════════╦═════════════════════════════════════════════════╣"
+		echo "	║                          ║                                                 ║"
+		echo "	║ < help >                 ║ display commands                                ║"
+		echo "	║ < msg >                  ║ print message on bash                           ║"
+		echo "	║ < imgASCII > <File_name> ║ print ASCII image on bash                       ║"
+		echo "	║ < imgP > <File_name>     ║ print image on bash(terminal must sp)           ║"
+		echo "	║ < domixi >               ║                                                 ║"
+		echo "	║                          ║                                                 ║"
+		echo "	║ ~comming soon....        ║                                                 ║"
+		echo "	╚══════════════════════════╩═════════════════════════════════════════════════╝"
+		;;
+	"msg")
+		shift
+		echo "$@"
+		;;
+	"imgASCII")
+		if [ -z "$2" ]; then
+			echo "Error - Check your file name or folder"
+		else
+			IMG_DIR="$HOME/.local/share/Images"
+
+			if [ -f "$IMG_DIR/$2" ]; then
+				ascii-image-converter "$IMG_DIR/$2" -C --width 70
+				echo ""
+			elif [ -f "$IMG_DIR/$2.jpg" ]; then
+				ascii-image-converter "$IMG_DIR/$2.jpg" -C --width 70 
+				echo ""
+			elif [ -f "$IMG_DIR/$2.png" ]; then
+				ascii-image-converter "$IMG_DIR/$2.png" -C --width 70
+				echo ""
+			elif [ -f "$IMG_DIR/$2.gif" ]; then
+				ascii-image-converter "$IMG_DIR/$2.gif" -C --width 70
+				echo ""
+			else
+				echo -e "${NoColor}Error2 - Check your file name or folder"
+			fi
+		fi 
+		;;
+	"imgP")
+		if [ -z "$2" ]; then
+           		 echo "Error: Please provide an image name."
+        	else
+			IMG_DIR="$HOME/.local/share/Images"
+
+			if [ -f "$IMG_DIR/$2" ]; then
+				chafa --format=kitty --size=70x60 "$IMG_DIR/$2"
+				echo ""
+			elif [ -f "$IMG_DIR/$2.jpg" ]; then
+				chafa --format=kitty --size=70x60 "$IMG_DIR/$2.jpg" 
+				echo ""
+			elif [ -f "$IMG_DIR/$2.png" ]; then
+				chafa --format=kitty --size=70x60 "$IMG_DIR/$2.png"
+				echo ""
+			elif [ -f "$IMG_DIR/$2.gif" ]; then
+				chafa --format=kitty --size=70x60 "$IMG_DIR/$2.gif"
+				echo ""
+			else
+				echo -e "${NoColor}Error2 - Check your file name or folder"
+            		fi
+        	fi
+        	;;
+	*)
+		echo ""
+		echo "~~~~~Out of expection please use "AMTsp help" for commands"
+		;;
+esac
