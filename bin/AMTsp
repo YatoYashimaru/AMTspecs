@@ -1,5 +1,6 @@
 #!/bin/bash
 
+IMG_DIR="usr/local/share/Images"
 GREEN='\033[0;32m'
 NoColor='\033[0m'
 
@@ -22,7 +23,7 @@ case $1 in
                                                                                                    '             '                      
 EOF
 
-		echo "Project by @YatoYashimaru\n"
+		echo "	Project by @YatoYashimaru"
 		echo -e "${GREEN}	█████ Hello User Welcome to AMTspecs █████${NoColor}"
 		echo ""
 		echo "	╔════════════════════════════════════════════════════════════════════════════╗"
@@ -47,8 +48,6 @@ EOF
 		if [ -z "$2" ]; then
 			echo "Error - Check your file name or folder"
 		else
-			IMG_DIR="$HOME/.local/share/Images"
-
 			if [ -f "$IMG_DIR/$2" ]; then
 				ascii-image-converter "$IMG_DIR/$2" -C --width 70
 				echo ""
@@ -70,8 +69,6 @@ EOF
 		if [ -z "$2" ]; then
            		 echo "Error: Please provide an image name."
         	else
-			IMG_DIR="$HOME/.local/share/Images"
-
 			if [ -f "$IMG_DIR/$2" ]; then
 				chafa --format=kitty --size=70x60 "$IMG_DIR/$2"
 				echo ""
@@ -89,6 +86,20 @@ EOF
             		fi
         	fi
         	;;
+	"domixi")
+		shift
+		NAME="$@"
+		chafa --format=kitty --size=65x85 "$IMG_DIR/Domimi/DomixiCall.jpg"
+		cat <<"EOF"
+█████████████████████████
+Alo em có phải $NAME không?
+Ui $NAME ơi em đừng có chối, thông tin về tên địa chỉ nhà, học trường gì, ở đâu, bố mẹ tên là gì anh có cả ở đây rồi.
+$NAME có cần anh đọc cho nghe một số thông tin không?
+$NAME ơi em còn trẻ quá, hơn con anh có mấy tuổi à, sao $NAME lại làm thế, còn cả tương lai đằng trước.
+$NAME thích anh cho người đến tận nhà nói chuyện với bố mẹ em đấy"
+█████████████████████████
+EOF
+		;;
 	*)
 		echo ""
 		echo "~~~~~Out of expection please use "AMTsp help" for commands"

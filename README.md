@@ -1,6 +1,6 @@
 # AMTspecs Project by YatoYashimaru <br>
 
-###Required to Install
+### Required to Install
 - chafa
 - ascii-image-converter
 - cat
@@ -9,20 +9,11 @@
 
 ```bash
  git clone https://github.com/YatoYashimaru/AMTspecs
+ cd AMTspecs
  sudo sh install.sh 
 ```
 
 ### help
 ```bash
  AMTsp help
-```
-
-###Before Use
-- run 
-```bash
-nano ~/.bashrc
-```
-- add line to give premission
-```bash
-export PATH="$HOME/.local/bin/AMTspecs:$PATH"
 ```
