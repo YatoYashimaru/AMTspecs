@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMG_DIR="usr/local/share/Images"
+IMG_DIR="/usr/local/share/Images"
 GREEN='\033[0;32m'
 NoColor='\033[0m'
 
@@ -90,7 +90,7 @@ EOF
 		shift
 		NAME="$@"
 		chafa --format=kitty --size=65x85 "$IMG_DIR/Domimi/DomixiCall.jpg"
-		cat <<"EOF"
+		cat <<EOF
 █████████████████████████
 Alo em có phải $NAME không?
 Ui $NAME ơi em đừng có chối, thông tin về tên địa chỉ nhà, học trường gì, ở đâu, bố mẹ tên là gì anh có cả ở đây rồi.
